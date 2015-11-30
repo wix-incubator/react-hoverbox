@@ -1,0 +1,29 @@
+{
+  "name": "react-hoverbox",
+  "version": "0.0.1",
+  "description": "ReactJS Component that knows when it's hovered over",
+  "main": "./index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wix/react-hoverbox.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "hover",
+    "mouseover",
+    "wix"
+  ],
+  "author": "Malsomnus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wix/react-hoverbox/issues"
+  },
+  "homepage": "https://github.com/wix/react-hoverbox",
+  "dependencies": {},
+  "devDependencies": {},
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
