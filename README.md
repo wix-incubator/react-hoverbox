@@ -5,7 +5,9 @@ This can be useful when you need your component to respond to hover in ways that
 
 The component accepts one prop - a render function similar to the one you'd give any React component. However, this function has a parameter which is set to true when the component is currently being hovered on.
 
-## Example (using ES6)
+## Example
+
+__ES6__
 
     var HoverBox = require("react-hoverbox");
 
@@ -15,6 +17,19 @@ The component accepts one prop - a render function similar to the one you'd give
             <div>Look at the shiny hover effect!</div>
         </div>
     )}/>
+
+__ES5__
+
+    var HoverBox = require("react-hoverbox");
+
+    <HoverBox render = {function(hover) {
+        return (
+            <div>
+                <SomeComponent showEffect = {hover} />
+                <div>Look at the shiny hover effect!</div>
+            </div>
+        );
+    }}/>
 
 ## Installation
 
