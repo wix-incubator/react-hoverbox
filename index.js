@@ -11,11 +11,16 @@ module.exports = React.createClass({
     },
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state) || !_.isEqual(nextContext, this.context);
+    }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     displayName: 'HoverBox',
 
     render: function() {
         return (
-            <div className={this.state.hover ? 'hover' : 'not-hover'} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+            <div className={this.state.hover ? 'hover' : 'not-hover'} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onMouseOver={this.onMouseOver}>
                 {this.props.render(this.state.hover)}
             </div>
         );
@@ -23,12 +28,23 @@ module.exports = React.createClass({
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     onMouseEnter: function() {
-        this.setState({hover: true});
+        if (this.state.hover == false) {
+            this.setState({hover: true});
+        }
+    },
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    onMouseOver: function() {
+        if (this.state.hover == false) {
+            this.setState({hover: true});
+        }
     },
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     onMouseLeave: function() {
-        this.setState({hover: false});
+        if (this.state.hover == true) {
+            this.setState({hover: false});
+        }
     },
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 });
