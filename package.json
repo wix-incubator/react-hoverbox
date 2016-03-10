@@ -1,6 +1,6 @@
 {
   "name": "react-hoverbox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ReactJS Component that knows when it's hovered over",
   "main": "./index.js",
   "scripts": {},
