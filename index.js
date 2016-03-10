@@ -13,7 +13,7 @@ module.exports = React.createClass({
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state) || !_.isEqual(nextContext, this.context);
-    }
+    },
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     displayName: 'HoverBox',
