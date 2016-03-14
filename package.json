@@ -2,7 +2,7 @@
   "name": "react-hoverbox",
   "version": "1.0.0",
   "description": "ReactJS Component that knows when it's hovered over",
-  "main": "./index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel/register",
     "prepublish": "npm test && grunt",
