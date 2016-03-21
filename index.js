@@ -1,3 +1,5 @@
+require('./index.css');
+
 module.exports = React.createClass({
     propTypes: {
         render: React.PropTypes.func,
@@ -16,11 +18,17 @@ module.exports = React.createClass({
     },
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    componentDidUpdate(prevProps, prevState, prevContext) {
+
+    },
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     displayName: 'HoverBox',
 
     render: function() {
         return (
-            <div className={this.state.hover ? 'hover' : 'not-hover'} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onMouseOver={this.onMouseOver}>
+            <div className={'__reacthoverbox__ ' + (this.state.hover ? 'hover' : 'not-hover')} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onMouseOver={this.onMouseOver}>
+                <div className='__reacthoverbox_dummy__'></div>
                 {this.props.render(this.state.hover)}
             </div>
         );
