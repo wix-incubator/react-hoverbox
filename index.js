@@ -1,5 +1,3 @@
-require('./index.css');
-
 module.exports = React.createClass({
     propTypes: {
         render: React.PropTypes.func,
