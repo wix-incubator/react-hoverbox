@@ -14,10 +14,23 @@ module.exports = React.createClass({
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state) || !_.isEqual(nextContext, this.context);
     },
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    componentDidMount() {
+        var This = this;
+        setTimeout(function() {
+            if (This.isMounted()) {
+                This.setState({hover: $(This.getDOMNode()).is(':hover')});
+            }
+        }, 1);
+    },
 
     componentDidUpdate(prevProps, prevState, prevContext) {
-
+        var This = this;
+        setTimeout(function() {
+            if (This.isMounted()) {
+                This.setState({hover: $(This.getDOMNode()).is(':hover')});
+            }
+        }, 1);
     },
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -25,8 +38,7 @@ module.exports = React.createClass({
 
     render: function() {
         return (
-            <div className={'__reacthoverbox__ ' + (this.state.hover ? 'hover' : 'not-hover')} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onMouseOver={this.onMouseOver}>
-                <div className='__reacthoverbox_dummy__'></div>
+            <div className={this.state.hover ? 'hover' : 'not-hover'} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onMouseOver={this.onMouseOver}>
                 {this.props.render(this.state.hover)}
             </div>
         );
