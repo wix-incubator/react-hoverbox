@@ -15,20 +15,20 @@ module.exports = React.createClass({
         return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state) || !_.isEqual(nextContext, this.context);
     },
 
-    componentDidMount() {
+    componentDidMount: function() {
         var This = this;
         setTimeout(function() {
             if (This.isMounted()) {
-                This.setState({hover: $(This.getDOMNode()).is(':hover')});
+                This.setState({ hover: !!(ReactDOM.findDOMNode() && $(ReactDOM.findDOMNode()).is(':hover')) });
             }
         }, 1);
     },
 
-    componentDidUpdate(prevProps, prevState, prevContext) {
+    componentDidUpdate: function(prevProps, prevState, prevContext) {
         var This = this;
         setTimeout(function() {
             if (This.isMounted()) {
-                This.setState({hover: $(This.getDOMNode()).is(':hover')});
+                This.setState({ hover: !!(ReactDOM.findDOMNode() && $(ReactDOM.findDOMNode()).is(':hover')) });
             }
         }, 1);
     },
