@@ -19,7 +19,7 @@ module.exports = React.createClass({
         var This = this;
         setTimeout(function() {
             if (This.isMounted()) {
-                This.setState({ hover: !!(ReactDOM.findDOMNode() && $(ReactDOM.findDOMNode()).is(':hover')) });
+                This.setState({ hover: !!(ReactDOM.findDOMNode(This) && $(ReactDOM.findDOMNode(This)).is(':hover')) });
             }
         }, 1);
     },
@@ -28,7 +28,7 @@ module.exports = React.createClass({
         var This = this;
         setTimeout(function() {
             if (This.isMounted()) {
-                This.setState({ hover: !!(ReactDOM.findDOMNode() && $(ReactDOM.findDOMNode()).is(':hover')) });
+                This.setState({ hover: !!(ReactDOM.findDOMNode(This) && $(ReactDOM.findDOMNode(This)).is(':hover')) });
             }
         }, 1);
     },
