@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                         loaders: ['json-loader']
                     },
                     {
-                        test: /\.js$/, 
+                        test: /\.js$/,
                         loaders: ['babel?blacklist[]=strict&compact=false']
                     },
                     {
@@ -35,11 +35,11 @@ module.exports = function(grunt) {
                     }
                     ]
                 },
-                externals:["moment", "moment-timezone"]
+                externals:["react", "react-dom", "lodash", "jquery", "moment", "moment-timezone"]
             }
         }
     });
-    
+
     grunt.loadNpmTasks('grunt-webpack');
 
     grunt.registerTask('default', ['webpack']);
