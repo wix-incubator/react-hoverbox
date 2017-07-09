@@ -22,7 +22,7 @@ module.exports = React.createClass({
 
     isHovered: function(element) {
         try {
-            return element && element.is(':hover');
+            return element && $(element).is(':hover');
         } catch (err) {
             console.error(err);
         }
