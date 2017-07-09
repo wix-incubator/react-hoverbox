@@ -20,11 +20,20 @@ module.exports = React.createClass({
         return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state) || !_.isEqual(nextContext, this.context);
     },
 
+    isHovered: function(element) {
+        try {
+            return element && element.is(':hover');
+        } catch (err) {
+            console.error(err);
+        }
+    },
+
     componentDidMount: function() {
         var This = this;
         setTimeout(function() {
             if (This.isMounted()) {
-                This.setState({ hover: !!(ReactDOM.findDOMNode(This) && $(ReactDOM.findDOMNode(This)).is(':hover')) });
+                var element = ReactDOM.findDOMNode(This);
+                This.setState({ hover: !!(This.isHovered(element)) });
             }
         }, 1);
     },
@@ -33,7 +42,8 @@ module.exports = React.createClass({
         var This = this;
         setTimeout(function() {
             if (This.isMounted()) {
-                This.setState({ hover: !!(ReactDOM.findDOMNode(This) && $(ReactDOM.findDOMNode(This)).is(':hover')) });
+                var element = ReactDOM.findDOMNode(This);
+                This.setState({ hover: !!(This.isHovered(element)) });
             }
         }, 1);
     },
