@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel/register",
     "prepublish": "npm test && grunt",
     "build": ":",
-    "release": "npm install @wix/wnpm-ci && wnpm-release -- --no-shrinkwrap"
+    "release": "npm install wnpm-ci && wnpm-release -- --no-shrinkwrap"
   },
   "repository": {
     "type": "git",
