@@ -2,10 +2,12 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('lodash');
 var $ = require('jquery');
+var createReactClass = require('create-react-class');
+var PropTypes = require('prop-types');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     propTypes: {
-        render: React.PropTypes.func,
+        render: PropTypes.func,
     },
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
