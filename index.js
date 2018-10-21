@@ -31,19 +31,26 @@ module.exports = createReactClass({
     },
 
     componentDidMount: function() {
+        this.isMounted = true;
+
         var This = this;
+
         setTimeout(function() {
-            if (This.isMounted()) {
+            if (This.isMounted) {
                 var element = ReactDOM.findDOMNode(This);
                 This.setState({ hover: !!(This.isHovered(element)) });
             }
         }, 1);
     },
 
+    componentWillUnmount: function() {
+        this.isMounted = false;
+    },
+
     componentDidUpdate: function(prevProps, prevState, prevContext) {
         var This = this;
         setTimeout(function() {
-            if (This.isMounted()) {
+            if (This.isMounted) {
                 var element = ReactDOM.findDOMNode(This);
                 This.setState({ hover: !!(This.isHovered(element)) });
             }
